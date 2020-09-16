@@ -11,7 +11,7 @@ int main(void)
 {
 	char q[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	write(2, q, strlen(q));
+	write(2, q, (size_t)strlen(q));
 
 	return (1);
 }
