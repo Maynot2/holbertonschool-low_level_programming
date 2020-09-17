@@ -17,10 +17,15 @@ int main(void)
 	{
 		for (j = 48 + c; j < 58; j++)
 		{
+			if (i == j)
+				continue;
+
 			putchar((char)i);
 			putchar((char)j);
+
 			if (i == 56 && j == 57)
 				break;
+
 			putchar(',');
 			putchar(' ');
 		}
