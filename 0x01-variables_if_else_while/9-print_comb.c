@@ -10,6 +10,7 @@ int main(void)
 {
 	int num;
 
+	/* Using ASCII values for digit 0 to 9 */
 	for (num = 48; num < 58; num++)
 	{
 		putchar((char)num);
