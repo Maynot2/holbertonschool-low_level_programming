@@ -9,44 +9,44 @@
 int main(void)
 {
 	int i, j, k, l;
-	int cj = 0;
-	int ck = 0;
-	int cl = 0;
+	int ascii[] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57};
 
-	/* Using ASCII values for digit 0 to 9 */
-	for (i = 48; i < 58; i++)
+	for (i = 0; i < 10; i++)
 	{
-		for (j = 48 + cj; j < 58; j++)
+		for (j = 0; j < 10; j++)
 		{
-			for (k = 48 + ck; k < 58; k++)
+			for (k = 0; k < 10; k++)
 			{	
-				for (l = 48 + cl; l < 58; l++)
+				for (l = 0; l < 10; l++)
 				{
-					if ((i == k && j == l) || (j == k && i == l))
+				/*	if ((i == k && j == l) || (j == k && i == l))
 						continue; 
-
-					putchar((char)i);
-					putchar((char)j);
+				*/
+					putchar((char)ascii[i]);
+					putchar((char)ascii[j]);
 					putchar(' ');	
-					putchar((char)k);
-					putchar((char)l);
+					putchar((char)ascii[k]);
+					putchar((char)ascii[l]);
 					putchar(',');
 					putchar(' ');
-
+				
 				}
-				if (k == 57)
-					cl++;
-				if (l >= 58)
+				if ((char)ascii[k] == '9')
+				printf("hello\n");
+				printf("l=%d ", l);
+				printf("k=%d ", k);
+					l += (1 + k);
+				if ((char)ascii[k] == '0')
 					l = 0;
 			}
-			if (j == 57)
-				ck++;
-			if (k >= 58)
+			if ((char)ascii[j] == '9')
+				k += (1 + j);
+			if ((char)ascii[j] == '0')
 				k = 0;
 		}
-		if (i == 57)
-			cj++;
-		if (j >= 58)
+		if ((char)ascii[i] == '9')
+			j += (1 + i);
+		if ((char)ascii[i] == '0')
 			j = 0;
 	}
 	putchar('\n');
