@@ -10,8 +10,9 @@
 int main(void)
 {
 	char q[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	int qlen = strlen(q);
 
-	write(2, q, 59);
+	write(2, q, qlen);
 
 	return (1);
 }
