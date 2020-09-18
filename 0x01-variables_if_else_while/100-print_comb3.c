@@ -9,29 +9,23 @@
 int main(void)
 {
 	int i;
-	int j;
-	int c = 0;
+	int ascii_0 = 48;
 
-	/* Using ASCII values for digit 0 to 9 */
-	for (i = 48; i < 58; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (j = 48 + c; j < 58; j++)
+		int n1 = i / 10;
+		int n2 = i % 10;
+
+		if (n1 != n2 && n1 <= n2)
 		{
-			if (i == j)
-				continue;
-
-			putchar((char)i);
-			putchar((char)j);
-
-			if (i == 56 && j == 57)
-				break;
-
-			putchar(',');
-			putchar(' ');
+			if (i > 1)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			putchar(n1 + ascii_0);
+			putchar(n2 + ascii_0);
 		}
-		if (c == 8)
-			break;
-		c++;
 	}
 	putchar('\n');
 
