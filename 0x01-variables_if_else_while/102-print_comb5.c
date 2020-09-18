@@ -16,7 +16,7 @@ int main(void)
 
 	for (i = 48; i < 58; i++)
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 48; j < 58; j++)
 		{
 			if (ci > 0)
 				skip = ci;
