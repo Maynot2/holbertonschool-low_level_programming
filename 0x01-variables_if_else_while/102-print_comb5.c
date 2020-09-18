@@ -1,51 +1,48 @@
 #include <stdio.h>
 
 /**
-  * main - Where the program starts
-  *
-  * Return: 0
-  *
-  */
+* main - Where the program starts
+*
+* Return: 0
+*
+*/
 int main(void)
 {
-	int i, j, k, l;
-	int ci = 0;
-	int cj = 0;
-	int ck = 0;
-	int skip = 0;
+	int i, j;
+	int n1, n2, n3, n4;
+	int ascii_0 = 48;
 
-	for (i = 48; i < 58; i++)
+	for (i = 0; i < 100; i++)
 	{
-		for (j = 48; j < 58; j++)
+		n1 = i / 10;
+		n2 = i % 10;
+	
+		for (j = 0; j < 100; j++) 
 		{
-			if (ci > 0)
-				skip = ci;
-			for (k = 48 + skip; k < 58; k++)
+			n3 = j / 10;
+			n4 = j % 10;
+
+			if ((n1 == n4 && n2 == n3) || (n1 == n3 && n2 == n4))
+				continue;
+
+			if ((n2 <= n4) && (n1 <= n3))
 			{
-				skip = (ck == 0) ? cj : 0;
-				for (l = 48 + skip; l < 58; l++)
+				if (!(n1 == 0 && n2 == 0 && n3 == 0 && n4 == 1))
 				{
-					if ((i == k && j == l) || (j == k && i == l))
-						continue;
-					putchar((char)i);
-					putchar((char)j);
-					putchar(' ');
-					putchar((char)k);
-					putchar((char)l);
-					if (i == 57 && j == 56 && k == 57 && l == 57)
-						break;
 					putchar(',');
 					putchar(' ');
-				}
-				ck++;
+				}				
+
+				putchar(n1 + ascii_0);
+				putchar(n2 + ascii_0);
+				putchar(' ');
+				putchar(n3 + ascii_0);
+				putchar(n4 + ascii_0);
 			}
-			cj++;
-			ck = 0;
-		}
-		ci++;
-		cj = 0;
-	}
+
+		}		
+	}	
 	putchar('\n');
 
-	return (0);
+	return 0;
 }
