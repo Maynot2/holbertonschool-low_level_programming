@@ -1,13 +1,12 @@
-#include <holberton.h>
+#include "holberton.h"
 
-*/
 /**
-  * main: Start of the program
+  * void: Print the alphabet
   *
-  * return: 0
+  * return: nothing
   *
   */
-int main(void)
+void print_alphabet(void)
 {
 	int l;
 
@@ -16,8 +15,6 @@ int main(void)
 		_putchar(l);
 	}
 	_putchar('\n');
-
-	return (0);
 }
 
 
