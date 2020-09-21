@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
-  * void: Print the alphabet
+  * print_alphabet - Print the alphabet
   *
-  * return: nothing
+  * Return: nothing
   *
   */
 void print_alphabet(void)

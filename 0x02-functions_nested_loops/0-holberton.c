@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
-  * main: Start of the program
+  * main - Start of the program
   *
-  * return: 0
+  * Return: 0
   *
   */
 int main(void)
