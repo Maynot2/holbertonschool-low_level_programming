@@ -1,6 +1,5 @@
-#include <holberton.h>
+#include "holberton.h"
 
-*/
 /**
   * main: Start of the program
   *
@@ -9,7 +8,7 @@
   */
 int main(void)
 {
-	char school[] = {'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n', '\n'};
+	char school[] = "Holberton\n";
 	int i;
 
 	for (i = 0; i < 10; i++)
