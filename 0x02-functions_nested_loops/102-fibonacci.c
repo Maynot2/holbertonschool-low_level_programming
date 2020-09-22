@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "holberton.h"
 
 /**
   * printi - Prints a positive integer character by character recursivly
@@ -7,11 +8,11 @@
   * Return: void
   *
   */
-void printi(int n)
+void printi(unsigned long n)
 {
-	if (n / 10)
+	if(n / 10)
 		printi(n / 10);
-	_putchar((n % 10) + '0');
+	_putchar('0' + (n % 10));
 }
 
 /**
@@ -25,8 +26,8 @@ int main(void)
 	unsigned long n1 = 0, n2 = 1, tmp;
 
 	printi(n1);
-	_putchar(' ');
 	_putchar(',');
+	_putchar(' ');
 	printi(n2);
 
 	while (i < 50)
@@ -34,8 +35,8 @@ int main(void)
 		tmp = n2;
 		n2 += n1;
 		n1 = tmp;
-		_putchar(' ');
 		_putchar(',');
+		_putchar(' ');
 		printi(n2);
 		i++;
 	}
