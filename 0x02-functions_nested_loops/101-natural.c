@@ -22,8 +22,8 @@ int _putchar(char c)
   */
 void printi(int n)
 {
-	if(n / 10)
-		printi(n /10);
+	if (n / 10)
+		printi(n / 10);
 	_putchar((n % 10) + '0');
 }
 
