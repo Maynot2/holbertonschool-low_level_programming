@@ -22,7 +22,14 @@ int main(void)
 		n1_p1 = tmp1 + n2_p1;
 		n1_p2 = tmp2;
 
-		printf(", %ld%ld", n2_p1, n2_p2);
+		if (n2_p1)
+		{
+			printf(", %ld%ld", n2_p1, n2_p2);
+		}
+		else
+		{
+			printf(", %ld", n2_p2);
+		}
 
 		i++;
 	}
