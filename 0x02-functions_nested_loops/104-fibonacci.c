@@ -1,19 +1,5 @@
-#include <unistd.h>
+#include <stdio.h>
 #include "holberton.h"
-
-/**
-  * printi - Prints a positive integer character by character recursivly
-  * @n: A positive Integer
-  *
-  * Return: void
-  *
-  */
-void printi(unsigned long n)
-{
-	if (n / 10)
-		printi(n / 10);
-	_putchar('0' + (n % 10));
-}
 
 /**
   * main - check the code for Holberton School students.
@@ -23,24 +9,24 @@ void printi(unsigned long n)
 int main(void)
 {
 	int i = 0;
-	unsigned long n1 = 1, n2 = 2, tmp;
+	unsigned long n1_p1 = 0, n1_p2 = 1, n2_p1 = 0, n2_p2 = 2, tmp1, tmp2;
 
-	printi(n1);
-	_putchar(',');
-	_putchar(' ');
-	printi(n2);
+	printf("1, 2");
 
 	while (i < 98)
 	{
-		tmp = n2;
-		n2 += n1;
-		n1 = tmp;
-		_putchar(',');
-		_putchar(' ');
-		printi(n2);
+		tmp1 = n2_p1;
+		tmp2 = n2_p2;
+		n2_p1 = n1_p1 + (n1_p2 + n2_p2) / 1000000000;
+		n2_p2 = (n1_p2 + n2_p2) % 1000000000;
+		n1_p1 = tmp1 + n2_p1;
+		n1_p2 = tmp2;
+
+		printf(", %ld%ld", n2_p1, n2_p2);
+
 		i++;
 	}
-	_putchar('\n');
+	printf("\n");
 
 	return (0);
 }
