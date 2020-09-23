@@ -18,7 +18,7 @@ void print_space(int x)
 }
 
 /**
-  * times_table - Prints times tables from 0 to n
+  * print_times_table - Prints times tables from 0 to n
   * @n: Integer between 0 and 15
   *
   * Return: void
