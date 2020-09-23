@@ -30,7 +30,7 @@ int main(void)
 	_putchar(' ');
 	printi(n2);
 
-	while (i < 50)
+	while (i < 48)
 	{
 		tmp = n2;
 		n2 += n1;
