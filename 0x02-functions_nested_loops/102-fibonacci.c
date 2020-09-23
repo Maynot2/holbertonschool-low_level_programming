@@ -23,7 +23,7 @@ void printi(unsigned long n)
 int main(void)
 {
 	int i = 0;
-	unsigned long n1 = 0, n2 = 1, tmp;
+	unsigned long n1 = 1, n2 = 2, tmp;
 
 	printi(n1);
 	_putchar(',');
