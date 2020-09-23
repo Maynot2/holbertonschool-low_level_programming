@@ -17,14 +17,14 @@ int main(void)
 	{
 		tmp1 = n2_p1;
 		tmp2 = n2_p2;
-		n2_p1 = n1_p1 + (n1_p2 + n2_p2) / 10000000000;
-		n2_p2 = (n1_p2 + n2_p2) % 10000000000;
+		n2_p1 = n1_p1 + (n1_p2 + n2_p2) / 1000000000;
+		n2_p2 = (n1_p2 + n2_p2) % 1000000000;
 		n1_p1 = tmp1 + n2_p1;
 		n1_p2 = tmp2;
 
 		if (n2_p1)
 		{
-			printf(", %ld%ld", n2_p1, n2_p2);
+			printf(", %ld%09ld", n2_p1, n2_p2);
 		}
 		else
 		{
