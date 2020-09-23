@@ -13,7 +13,7 @@ int main(void)
 
 	printf("1, 2");
 
-	while (i < 98)
+	while (i < 96)
 	{
 		tmp1 = n2_p1;
 		tmp2 = n2_p2;
