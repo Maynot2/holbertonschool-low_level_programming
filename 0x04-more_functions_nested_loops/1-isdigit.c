@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
-  * _isupper - Tests if a character c is uppercase
+  * _isdigit - Tests if a character c is a digit
   * @c: The character to be tested
   *
   * Return: on success 1
