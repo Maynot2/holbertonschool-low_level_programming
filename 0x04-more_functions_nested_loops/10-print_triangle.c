@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_square - Print a square of side size
- * @size: An integer that set the side's length of the square
+ * print_triangle - Print a triangle of base size
+ * @size: An integer that set the base's length of the triangle
  *
  * Return: Void
  *
