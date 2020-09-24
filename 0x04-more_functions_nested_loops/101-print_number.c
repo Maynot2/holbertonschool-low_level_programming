@@ -8,7 +8,7 @@
  *
  */
 
-void print_number(int n)
+void print_number(long n)
 {
 	if (n < 0)
 	{
