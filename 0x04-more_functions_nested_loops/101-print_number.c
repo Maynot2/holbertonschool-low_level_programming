@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_i - Print a positive number n without using the standard libray
+ * printi - Print a positive number n without using the standard libray
  * @n: A positive integer
  *
  * Return: Void
