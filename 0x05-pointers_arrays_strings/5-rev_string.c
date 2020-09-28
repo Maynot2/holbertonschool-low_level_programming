@@ -1,6 +1,22 @@
 #include "holberton.h"
 
 /**
+ * swap_int - takes 2 int pointers a and b  and swaps there values.
+ *	@a: A pointer to an int.
+ * @b: A pointer to an int.
+ *
+ * Return: void.
+ *
+ */
+
+void swap(char *c1, char *c2)
+{
+	char tmp = *c2;
+	*c2 = *c1;
+	*c1 = tmp;
+}
+
+/**
  * _strlen - takes a string pointer s and return the length of the matching
  * string.
  *	@s: A pointer to a string.
@@ -30,19 +46,17 @@ int _strlen(char *s)
 void rev_string(char *s)
 {
 	int i, slen = _strlen(s);
-	char *start, *end, tmp;
+	char *start, *end;
 
 	end = s;
 	start = s;
-	
+
 	for (i = 0; i < slen - 1; i++)
 		end++;
 
 	for (i = 0; i < slen / 2; i++)
 	{
-		tmp = *start;
-		*start = *end;
-		*end = tmp;
+		swap(start, end);
 
 		start++;
 		end--;
