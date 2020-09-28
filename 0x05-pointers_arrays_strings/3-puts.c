@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
-  * _puts - takes a string pointer s and prints s to stdout
-  *	@s: A pointer to a string.
+  * _puts - takes a string pointer str and prints str to stdout
+  *	@str: A pointer to a string.
   *
   * Return: Void.
   *
@@ -12,7 +12,7 @@ void _puts(char *str)
 {
 	int i = 0;
 
-	while(*(str + i))
+	while (*(str + i))
 	{
 		_putchar(*(str + i));
 		i++;
