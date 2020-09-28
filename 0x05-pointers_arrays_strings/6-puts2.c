@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * put2 - Takes a string pointer s and prints every other character followed
+ * puts2 - Takes a string pointer s and prints every other character followed
  * by a new line.
  * string.
  * @str: A pointer to a string.
