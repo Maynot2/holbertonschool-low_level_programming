@@ -35,16 +35,11 @@ void puts_half(char *str)
 
 	start = str;
 
-	if (sl % 2 != 0) /* even characters length */
-	{
-		for (i = 0; i < sl / 2; i++)
-			start++;
-	}
-	else
-	{
-		for (i = 0; i < (sl + 1) / 2; i++)
-			start++;
-	}
+	for (i = 0; i < sl / 2; i++)
+		start++;
+
+	if ((sl + 1) % 2 == 0)
+		start++;
 
 	i = 0;
 
