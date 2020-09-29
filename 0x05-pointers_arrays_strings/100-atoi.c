@@ -34,10 +34,10 @@ int computable_len(char *s)
 	{
 		c++;
 		if (is_num(*(s + c)) && !is_num(*(s + c + 1)))
-			break;
+			return (c);
 	}
 
-	return (c);
+	return (0);
 }
 
 /**
