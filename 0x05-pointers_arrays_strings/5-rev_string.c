@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * swap_int - takes 2 int pointers a and b  and swaps there values.
- *	@a: A pointer to an int.
- * @b: A pointer to an int.
+ * swap - takes 2 int pointers c1 and c2  and swaps there values.
+ * @c1: A pointer to a char.
+ * @c2: A pointer to a char.
  *
  * Return: void.
  *
