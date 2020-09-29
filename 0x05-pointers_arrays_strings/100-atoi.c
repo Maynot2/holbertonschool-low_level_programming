@@ -1,6 +1,15 @@
 #include "holberton.h"
 #include <stdio.h>
 
+/**
+ * is_num - Takes a character c and tests if it a number charcter or not
+ * @c: A character.
+ *
+ * Return: 1 on succes.
+ *         0 on error.
+ *
+ */
+
 int is_num(char c)
 {
 	if (c >= 48 && c < 58)
@@ -9,11 +18,11 @@ int is_num(char c)
 }
 
 /**
- * _strlen - takes a string pointer s and return the length of the matching
- * string.
- *	@s: A pointer to a string.
+ * computable_len - Takes a string pointer s and return the length of the
+ * string to the first last digit
+ * @s: A pointer to a string.
  *
- * Return: An integer corresponding to the length of a string.
+ * Return: An integer.
  *
  */
 
@@ -69,9 +78,9 @@ int _atoi(char *s)
 
 	for (i = 0; i <= computable_len(s); i++)
 	{
-		if(*(s + i) == '-')
-			c++; 
-		if(*(s + i) >= 48 && *(s + i) < 58)
+		if (*(s + i) == '-')
+			c++;
+		if (*(s + i) >= 48 && *(s + i) < 58)
 		{
 			*ptres  = *ptres + (*(s + i) - 48) * _pow(10, len);
 		}
