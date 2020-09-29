@@ -82,13 +82,13 @@ int _atoi(char *s)
 			c++;
 		if (*(s + i) >= 48 && *(s + i) < 58)
 		{
-			*ptres  = *ptres + (*(s + i) - 48) * _pow(10, len);
+			if (c % 2 != 0)
+				*ptres  = *ptres + (-(*(s + i) - 48)) * _pow(10, len);
+			else
+				*ptres  = *ptres + (*(s + i) - 48) * _pow(10, len);
 		}
 		len--;
 	}
-
-	if (c % 2 != 0)
-		result = -result;
 
 	return (result);
 }
