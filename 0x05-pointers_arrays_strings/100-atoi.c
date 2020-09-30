@@ -41,27 +41,6 @@ int computable_len(char *s)
 }
 
 /**
- * _pow - Computes n to the power of exp
- * @n: A integer.
- * @exp: An integer.
- *
- * Return: an integer.
- *
- */
-
-int _pow(int n, int exp)
-{
-	int res = 1, i;
-
-	for (i = 0; i < exp; i++)
-	{
-		res *= n;
-	}
-
-	return (res);
-}
-
-/**
  * _atoi - Takes a char pointer s and converts it into an int
  * @s: A pointer to an array of chars.
  *
@@ -73,21 +52,18 @@ int _pow(int n, int exp)
 int _atoi(char *s)
 {
 	int i = 0, c = 0, result = 0;
-	int len = computable_len(s);
-	int *ptres = &result;
 
 	for (i = 0; i <= computable_len(s); i++)
 	{
 		if (*(s + i) == '-')
 			c++;
-		if (*(s + i) >= 48 && *(s + i) < 58)
+		if (is_num(*(s + i)))
 		{
 			if (c % 2 != 0)
-				*ptres  = *ptres + (-(*(s + i) - 48)) * _pow(10, len);
+				result = result * 10 -(*(s + i) - 48);
 			else
-				*ptres  = *ptres + (*(s + i) - 48) * _pow(10, len);
+				result = result * 10 +  (*(s + i) - 48);
 		}
-		len--;
 	}
 
 	return (result);
