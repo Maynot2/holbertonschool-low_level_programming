@@ -8,7 +8,7 @@
  * Return: Void.
  *
  */
-
+/*
 void _swap_char(char *c1, char *c2)
 {
 	int tmp;
@@ -17,6 +17,7 @@ void _swap_char(char *c1, char *c2)
 	*c1 = *c2;
 	*c2 = tmp;
 }
+*/
 
 /**
  * is_special_char - Tests if a character c is one of ,, ;, ., !, ?, ", (, ),
@@ -70,13 +71,13 @@ char *cap_string(char *s)
 {
 	int i = 0;
 	int ascof = 32; /* bytes offset between low & uppercase in the ascii table */
-	char space = ' ';
-	char *pts = &space;
+/*	char space = ' ';
+	char *pts = &space;*/
 
 	while (s[i])
 	{
-		if (s[i] == '\t')
-			_swap_char(&s[i], pts);
+/*		if (s[i] == '\t')
+			_swap_char(&s[i], pts); */
 		if (is_lower(s[i]) && is_special_char(s[i - 1]))
 			s[i] -= ascof;
 		i++;
