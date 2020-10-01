@@ -13,7 +13,7 @@
 
 int is_special_char(char c)
 {
-	char special[] = " ,;.!?\"(){}\t";
+	char special[] = " ,;.!?\"(){}\t\n";
 	int i = 0;
 
 	while (special[i])
