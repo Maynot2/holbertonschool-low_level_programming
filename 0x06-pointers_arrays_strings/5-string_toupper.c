@@ -27,7 +27,7 @@ int is_lower(char c)
 
 char *string_toupper(char *s)
 {
-	int i;
+	int i = 0;
 	int ascof = 32; /* bytes offset between low & uppercase in the ascii table */
 
 	while (s[i])
