@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _sawp - Swaps the value of two integers n1 and n2
+ * _swap - Swaps the value of two integers n1 and n2
  * @n1: A pointer to an integer
  * @n2: A pointer to an integer
  *
@@ -13,6 +13,7 @@
 void _swap(int *n1, int *n2)
 {
 	int tmp;
+
 	tmp = *n1;
 	*n1 = *n2;
 	*n2 = tmp;
