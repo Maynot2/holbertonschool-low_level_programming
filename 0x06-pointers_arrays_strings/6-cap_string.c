@@ -56,6 +56,8 @@ char *cap_string(char *s)
 
 	while (s[i])
 	{
+		if (is_lower(s[i]) && i == 0)
+			s[i] -= ascof;
 		if (is_lower(s[i]) && is_special_char(s[i - 1]))
 			s[i] -= ascof;
 		i++;
