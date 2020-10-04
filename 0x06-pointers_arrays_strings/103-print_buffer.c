@@ -47,7 +47,7 @@ void print_buffer(char *b, int size)
 		while (j < 10)
 		{
 			if (j == 0)
-				printf("00000%02x: ", i * 10);
+				printf("000000%02x: ", i * 10);
 			printf("%02x%02x ", *(b + (i * 10) + j), *(b + (i * 10) + j + 1));
 			if (j >= 8)
 				print_section(b, i * 10, 10);
@@ -59,7 +59,7 @@ void print_buffer(char *b, int size)
 	while (k < 10)
 	{
 		if (k == 0)
-			printf("00000%02x: ", i * 10);
+			printf("000000%02x: ", i * 10);
 		if (k < size % 10)
 			printf("%02x%02x ", *(b + (i * 10) + k), *(b + (i * 10) + k + 1));
 		if (k >= size % 10)
