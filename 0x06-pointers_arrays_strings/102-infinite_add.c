@@ -47,6 +47,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	while (i >= 0)
 	{
 		int offset = (min_len - 1) - i;
+
 		num1 = *(num_max + i) - 48;
 		num2 = offset >= 0 ? *(num_min + offset) - 48 : 0;
 		sum = num1 + num2 + ret;
