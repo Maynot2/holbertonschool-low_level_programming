@@ -16,7 +16,8 @@
 void print_section(char *s, int pos, int len)
 {
 	int i = 0;
-
+	
+	putchar(' ');
 	while (i < len)
 	{
 		if (isprint(*(s + pos + i)))
@@ -44,29 +45,37 @@ void print_buffer(char *b, int size)
 	{
 		int j = 0;
 
-		while (j < 10)
+		while (j < 9)
 		{
 			if (j == 0)
-				printf("000000%02x: ", i * 10);
-			printf("%02x%02x ", *(b + (i * 10) + j), *(b + (i * 10) + j + 1));
-			if (j >= 8)
-				print_section(b, i * 10, 10);
+				printf("000000%02x:", i * 10);
+			printf(" %02x%02x", *(b + (i * 10) + j), *(b + (i * 10) + j + 1));
 			j += 2;
 		}
+		print_section(b, i * 10, 10);
 		putchar('\n');
 		i++;
 	}
-	while (k < 10)
+	while (k < 9)
 	{
 		if (k == 0)
-			printf("000000%02x: ", i * 10);
+			printf("000000%02x:", i * 10);
 		if (k < size % 10)
-			printf("%02x%02x ", *(b + (i * 10) + k), *(b + (i * 10) + k + 1));
+		{
+			if ( k % 2 == 0)
+				printf(" %02x", *(b + (i * 10) + k));
+			else
+				printf("%02x", *(b + (i * 10) + k));
+		}
 		if (k >= size % 10)
-			printf("     ");
-		if (k >= 8)
-			print_section(b, i * 10, size % 10);
-		k += 2;
+		{
+			if ( k % 2 == 0)
+				printf("    ");
+			else
+				printf("  ");
+		}
+		k ++;
 	}
+	print_section(b, i * 10, size % 10);
 	putchar('\n');
 }
