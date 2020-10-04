@@ -16,7 +16,7 @@
 void print_section(char *s, int pos, int len)
 {
 	int i = 0;
-	
+
 	putchar(' ');
 	while (i < len)
 	{
@@ -62,19 +62,18 @@ void print_buffer(char *b, int size)
 			printf("000000%02x:", i * 10);
 		if (k < size % 10)
 		{
-			if ( k % 2 == 0)
+			if (k % 2 == 0)
 				printf(" %02x", *(b + (i * 10) + k));
 			else
 				printf("%02x", *(b + (i * 10) + k));
 		}
 		if (k >= size % 10)
 		{
-			if ( k % 2 == 0)
-				printf("    ");
-			else
-				printf("  ");
+			printf(k % 2 == 0 ? "   " : "  ")
 		}
-		k ++;
+		if (k == 8)
+			printf("  ");
+		k++;
 	}
 	print_section(b, i * 10, size % 10);
 	putchar('\n');
