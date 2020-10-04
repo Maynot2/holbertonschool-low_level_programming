@@ -77,4 +77,5 @@ void print_buffer(char *b, int size)
 		print_section(b, i * 10, size % 10);
 		putchar('\n');
 	}
+	*(b + (i * 10) + k + 1) = '\0';
 }
