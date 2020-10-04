@@ -75,6 +75,8 @@ void print_buffer(char *b, int size)
 				printf("  ");
 		}
 		print_section(b, i * 10, size % 10);
+		putchar('\n');
 	}
-	putchar('\n');
+	if (size == 0)
+		putchar('\n');
 }
