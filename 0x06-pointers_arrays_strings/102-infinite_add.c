@@ -34,40 +34,31 @@ int _strlen(char *s)
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i = _strlen(n1) >= _strlen(n2) ? _strlen(n1) - 1 : _strlen(n2) - 1;
-	int j = _strlen(n1) <= _strlen(n2) ? _strlen(n1) - 1 : _strlen(n2) - 1;
 	int min_len = _strlen(n1) <= _strlen(n2) ? _strlen(n1) : _strlen(n2);
 	char *num_max = _strlen(n1) >= _strlen(n2) ? n1 : n2;
 	char *num_min = _strlen(n1) < _strlen(n2) ? n1 : n2;
-	int num1, num2, d, sum, c = 0, ret = 0;
+	int num1, num2, d, sum, ret = 0;
 
 	if (i + 1 >= size_r)
 		return (0);
 
 	*(r + i + 2) = '\0';
 
-	while (i >= 0 && c < min_len)
+	while (i >= 0)
 	{
+		int offset = (min_len - 1) - i;
 		num1 = *(num_max + i) - 48;
-		num2 = *(num_min + j) - 48;
+		num2 = offset >= 0 ? *(num_min + offset) - 48 : 0;
 		sum = num1 + num2 + ret;
 		d = sum % 10;
 		ret = sum >= 10 ? 1 : 0;
 		*(r + i + 1) = d + '0';
-		c++;
-		j--;
 		i--;
 	}
-	while (i >= 0)
-	{
-		num1 = *(num_max + i) - 48;
-		sum = num1 + ret;
-		d = sum % 10;
-		ret = sum >= 10 ? 1 : 0;
-		*(r + i + 1) = d + '0';
-		i--;
-	}
+
 	if (ret)
 		*r = 1 + '0';
+
 	if (_strlen(r) >= size_r)
 		return (0);
 	return (ret ? r : r + 1);
