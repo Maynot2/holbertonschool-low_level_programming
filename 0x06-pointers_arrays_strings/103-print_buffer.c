@@ -39,7 +39,7 @@ void print_section(char *s, int pos, int len)
 
 void print_buffer(char *b, int size)
 {
-	int i, k = 0;
+	int i, k;
 
 	for (i = 0; i < (size / 10); i++)
 	{
@@ -75,6 +75,6 @@ void print_buffer(char *b, int size)
 				printf("  ");
 		}
 		print_section(b, i * 10, size % 10);
-		putchar('\n');
 	}
+	putchar('\n');
 }
