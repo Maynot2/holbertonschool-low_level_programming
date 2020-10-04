@@ -34,7 +34,7 @@ int _strlen(char *s)
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int i = _strlen(n1) >= _strlen(n2) ? _strlen(n1) - 1 : _strlen(n2) - 1;
-	int min_len = _strlen(n1) <= _strlen(n2) ? _strlen(n1) : _strlen(n2);
+	int j = _strlen(n1) < _strlen(n2) ? _strlen(n1) - 1 : _strlen(n2) - 1;
 	char *num_max = _strlen(n1) >= _strlen(n2) ? n1 : n2;
 	char *num_min = _strlen(n1) < _strlen(n2) ? n1 : n2;
 	int num1, num2, d, sum, ret = 0;
@@ -46,14 +46,13 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	while (i >= 0)
 	{
-		int offset = (min_len - 1) - i;
-
 		num1 = *(num_max + i) - 48;
-		num2 = offset >= 0 ? *(num_min + offset) - 48 : 0;
+		num2 = j >= 0 ? *(num_min + j) - 48 : 0;
 		sum = num1 + num2 + ret;
 		d = sum % 10;
 		ret = sum >= 10 ? 1 : 0;
 		*(r + i + 1) = d + '0';
+		j--;
 		i--;
 	}
 
