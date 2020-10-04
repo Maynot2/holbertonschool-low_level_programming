@@ -43,7 +43,7 @@ void print_buffer(char *b, int size)
 
 	if (!size)
 	{
-		printf("%s\n", b)
+		printf("%s\n", b);
 	}
 	else
 	{
