@@ -69,7 +69,7 @@ void print_buffer(char *b, int size)
 		}
 		if (k >= size % 10)
 		{
-			printf(k % 2 == 0 ? "   " : "  ")
+			printf(k % 2 == 0 ? "   " : "  ");
 		}
 		if (k == 8)
 			printf("  ");
