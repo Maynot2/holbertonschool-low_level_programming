@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strpbrk - locates the first occurrence in the string s of any of the 
+ * _strpbrk - locates the first occurrence in the string s of any of the
  * bytes in the string accept.
  * @s: A pointer to a string.
  * @accept: A pointer to a string.
@@ -14,7 +14,6 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int i = 0, j;
-	int c = 0;
 
 	while (*(s + i))
 	{
@@ -22,7 +21,7 @@ char *_strpbrk(char *s, char *accept)
 		while (*(accept + j))
 		{
 			if (*(s + i) == *(accept + j))
-				return (*(s + i));
+				return ((s + i));
 			j++;
 		}
 		i++;
