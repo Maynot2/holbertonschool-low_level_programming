@@ -2,35 +2,16 @@
 #include <stdio.h>
 
 /**
- * _strlen - takes a string pointer s and return the length of the matching
- * string.
- * @s: A pointer to a string.
- *
- * Return: An integer corresponding to the length of a string.
- *
- */
-
-int _strlen(char *s)
-{
-	int c = 0;
-
-	while (s[c])
-		c++;
-
-	return (c);
-}
-
-/**
- * _strspn - Gets the length of a prefix substring.
+ * _strpbrk - locates the first occurrence in the string s of any of the 
+ * bytes in the string accept.
  * @s: A pointer to a string.
  * @accept: A pointer to a string.
  *
- * Return: An integer corresponding to number of time characters in accep.
- * are found.
+ * Return: A pointer to a string.
  *
  */
 
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
 	int i = 0, j;
 	int c = 0;
@@ -41,12 +22,10 @@ unsigned int _strspn(char *s, char *accept)
 		while (*(accept + j))
 		{
 			if (*(s + i) == *(accept + j))
-				c++;
+				return (*(s + i));
 			j++;
 		}
-		if (i > c)
-			break;
 		i++;
 	}
-	return (c);
+	return (NULL);
 }
