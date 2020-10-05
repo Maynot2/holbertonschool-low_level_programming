@@ -43,7 +43,6 @@ char *_strstr(char *haystack, char *needle)
 		{
 			if (nd_len - 1 == j)
 			{
-				*(haystack + i + j + 1) = '\0';
 				return (haystack + i);
 			}
 			j++;
