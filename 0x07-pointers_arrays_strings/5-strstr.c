@@ -36,6 +36,9 @@ char *_strstr(char *haystack, char *needle)
 	int i = 0, j;
 	int nd_len = _strlen(needle);
 
+	if (!*needle)
+		return haystack;
+
 	while (*(haystack + i))
 	{
 		j = 0;
