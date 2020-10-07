@@ -34,10 +34,7 @@ int wildcmp_rec(char *s1, char *s2, int i)
 	{
 		if (s1[i] != s2[i])
 		{
-			if (s2[i] == '*')
-				/* printf("do something else!"); */
-			else
-				return (0);
+			return (0);
 		}
 
 		if (!s1[i])
