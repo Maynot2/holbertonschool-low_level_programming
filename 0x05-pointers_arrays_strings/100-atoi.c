@@ -2,39 +2,22 @@
 #include <stdio.h>
 
 /**
- * is_num - Takes a character c and tests if it a number charcter or not
- * @c: A character.
+ * _isdigit - Tests if a character c is a digit
+ * @c: The character to be tested
  *
- * Return: 1 on succes.
- *         0 on error.
- *
- */
-
-int is_num(char c)
-{
-	if (c >= 48 && c < 58)
-		return (1);
-	return (0);
-}
-
-/**
- * computable_len - Takes a string pointer s and return the length of the
- * string to the first last digit
- * @s: A pointer to a string.
- *
- * Return: An integer.
+ * Return: on success 1
+ *         on error 0
  *
  */
 
-int computable_len(char *s)
+int _isdigit(int c)
 {
-	int c = 0;
+	int d;
 
-	while (*(s + c))
+	for (d = '0'; d <= '9'; d++)
 	{
-		c++;
-		if (is_num(*(s + c)) && !is_num(*(s + c + 1)))
-			return (c);
+		if (c == d)
+			return (1);
 	}
 
 	return (0);
@@ -53,18 +36,20 @@ int _atoi(char *s)
 {
 	int i = 0, c = 0, result = 0;
 
-	for (i = 0; i <= computable_len(s); i++)
+	while (*(s + i))
 	{
 		if (*(s + i) == '-')
 			c++;
-		if (is_num(*(s + i)))
+		if (_isdigit(*(s + i)))
 		{
 			if (c % 2 != 0)
 				result = result * 10 -(*(s + i) - 48);
 			else
 				result = result * 10 +  (*(s + i) - 48);
 		}
+		if (_isdigit(*(s + i)) && !_isdigit(*(s + i + 1)))
+			break;
+		i++;
 	}
-
 	return (result);
 }
