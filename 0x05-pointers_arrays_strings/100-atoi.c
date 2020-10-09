@@ -43,7 +43,7 @@ int _atoi(char *s)
 		if (_isdigit(*(s + i)))
 		{
 			if (c % 2 != 0)
-				result = result * 10 -(*(s + i) - 48);
+				result = result * 10 - (*(s + i) - 48);
 			else
 				result = result * 10 +  (*(s + i) - 48);
 		}
