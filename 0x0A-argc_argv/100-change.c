@@ -13,8 +13,9 @@
 
 int main(int argc, char *argv[])
 {
-	int amount;
-	int c25 = 0, c10 = 0, c5 = 0, c2 = 0, c1 = 0;
+	int amount, i;
+	int c = 0;
+	int val[] = {25, 10, 5, 2, 1};
 
 	if (argc <= 1 || argc >= 3)
 	{
@@ -30,18 +31,12 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-	c25 += amount / 25;
-	amount -= c25 * 25;
-	c10 += amount / 10;
-	amount -= c10 * 10;
-	c5 += amount / 5;
-	amount -= c5 * 5;
-	c2 += amount / 2;
-	amount -= c2 * 2;
-	c1 += amount / 1;
-	amount -= c1 * 1;
-
-	printf("%d\n", c25 + c10 + c5 + c2 + c1);
+		for (i = 0; i < 5; i++)
+		{
+			c += amount / val[i];
+			amount = amount % val[i];
+		}
+	printf("%d\n", c);
 	}
 
 	return (0);
