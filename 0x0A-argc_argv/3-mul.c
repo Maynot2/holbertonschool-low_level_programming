@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define UNUSED(X) (void)(X)
-
 /**
   * main - Where the program start.
   * @argc: An integer.
@@ -15,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc < 2 || argc > 3)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
