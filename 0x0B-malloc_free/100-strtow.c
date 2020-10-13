@@ -86,7 +86,7 @@ char **strtow(char *str)
 	int wc, wlen;
 	int i, j;
 
-	if (str == NULL || str == "")
+	if (str == NULL || _strlen(str) == 0)
 		return (NULL);
 
 	wc = word_count(str);
@@ -94,7 +94,7 @@ char **strtow(char *str)
 	words = malloc(wc * sizeof(char *) + sizeof(char *));
 	if (words == NULL)
 		return (NULL);
-	words[wc] == NULL;
+	words[wc] = NULL;
 
 	for (i = 0; i < wc; i++)
 	{
