@@ -33,8 +33,8 @@ int _strlen(char *s)
 
 char *_strdup(char *str)
 {
-	int len = _strlen(str);
-	char *cp_str_pt = malloc(len * sizeof(str) + 1);
+	int len = _strlen(str) + 1;
+	char *cp_str_pt = malloc(len * sizeof(char));
 	int i;
 
 	if (cp_str_pt == NULL || str == NULL)
