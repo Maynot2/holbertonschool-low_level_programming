@@ -34,14 +34,18 @@ int _strlen(char *s)
 
 char *str_concat(char *s1, char *s2)
 {
-	int len1 = _strlen(s1), len2 = _strlen(s2);
-	char *conc_spt = malloc(len1 * sizeof(char) + len2 * sizeof(char) + 1);
+	int len1, len2;
+	char *conc_spt;
 	int i;
 
 	if (s1 == NULL)
 		*s1 = 0;
 	if (s2 == NULL)
 		*s2 = 0;
+	len1 = _strlen(s1);
+	len2 = _strlen(s2) + 1;
+
+	conc_spt = malloc(len1 * sizeof(char) + len2 * sizeof(char));
 
 	if (conc_spt == NULL)
 	{
