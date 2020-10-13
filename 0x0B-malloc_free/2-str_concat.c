@@ -14,6 +14,9 @@ int _strlen(char *s)
 {
 	int c = 0;
 
+	if (s == NULL)
+		return (c);
+
 	while (*(s + c))
 		c++;
 	return (c);
@@ -32,7 +35,7 @@ int _strlen(char *s)
 char *str_concat(char *s1, char *s2)
 {
 	int len1 = _strlen(s1), len2 = _strlen(s2);
-	char *conc_spt = (char *) malloc(len1 * sizeof(s1) + len2 * sizeof(s2) + 1);
+	char *conc_spt = malloc(len1 * sizeof(char) + len2 * sizeof(char) + 1);
 	int i;
 
 	if (s1 == NULL)
