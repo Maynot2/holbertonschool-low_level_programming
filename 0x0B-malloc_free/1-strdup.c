@@ -31,7 +31,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	int len = _strlen(str);
-	char *cp_str_pt = (char *) malloc(len * sizeof(str));
+	char *cp_str_pt = (char *) malloc(len * sizeof(str) + 1);
 	int i;
 
 	if (cp_str_pt == NULL || str == NULL)
@@ -44,6 +44,7 @@ char *_strdup(char *str)
 		{
 			*(cp_str_pt + i) = *(str + i);
 		}
+		*(cp_str_pt + i) = '\0';
 		return (cp_str_pt);
 	}
 }
