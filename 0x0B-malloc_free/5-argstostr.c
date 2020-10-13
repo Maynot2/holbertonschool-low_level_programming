@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 	int total_len = 0;
 	int i, j, k;
 
-	if (ac == NULL || av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (j = 0; j < ac; j++)
