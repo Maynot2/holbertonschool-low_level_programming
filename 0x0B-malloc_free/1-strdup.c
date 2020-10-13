@@ -14,6 +14,9 @@ int _strlen(char *s)
 {
 	int c = 0;
 
+	if (s == NULL)
+		return (c);
+
 	while (*(s + c))
 		c++;
 	return (c);
