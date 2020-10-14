@@ -57,13 +57,13 @@ int isempty_str(char *s)
 {
 	int i = 0;
 
-	while(s[i])
+	while (s[i])
 	{
 		if (ischar(s[i]))
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
 /**
