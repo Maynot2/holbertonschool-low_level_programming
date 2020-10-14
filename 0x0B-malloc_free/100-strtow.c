@@ -45,6 +45,28 @@ int ischar(char c)
 }
 
 /**
+  * isempty_str - Tests if a string is filled with spaces only
+  * @s: A pointer to a string.
+  *
+  * Return: 1 on success.
+  *         0 on error.
+  *
+  */
+
+int isempty_str(char *s)
+{
+	int i = 0;
+
+	while(s[i])
+	{
+		if (ischar(s[i]))
+			return(0);
+		i++;
+	}
+	return(1);
+}
+
+/**
   * word_count - Counts how many words in a string.
   * @s: A pointer to a string.
   *
@@ -81,7 +103,7 @@ char **strtow(char *str)
 	char **words;
 	int wc, i, j, k;
 
-	if (str == NULL || _strlen(str) == 0)
+	if (str == NULL || _strlen(str) == 0 || isempty_str(str))
 		return (NULL);
 
 	wc = word_count(str);
