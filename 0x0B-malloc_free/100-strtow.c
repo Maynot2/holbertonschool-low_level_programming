@@ -35,7 +35,7 @@ int ischar(char c)
 {
 	char l = 33;
 
-	while (l <= 'z')
+	while (l <= '~')
 	{
 		if (c == l)
 			return (1);
