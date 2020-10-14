@@ -54,56 +54,18 @@ int ischar(char c)
 
 int word_count(char *s)
 {
-	int c, i;
+	int c = 0, i = 0;
 
-	if (*s)
-		c = 1;
-
-	i = 0;
 	while (s[i])
 	{
 		if (ischar(s[i]) &&  s[i + 1] == ' ')
 			c++;
+		if (ischar(s[i]) && s[i + 1] == '\0')
+			c++;
 		i++;
 	}
-	if (s[_strlen(s) - 1] == ' ')
-		c--;
 
 	return (c);
-}
-
-/**
-  * populate_arr - Populate an array.
-  * @str: A pointer to a string.
-  * @words: A pointer to a pointer to a character.
-  *
-  * Return: Nothing.
-  *
-  */
-
-void populate_arr(char *str, char **words)
-{
-	int k;
-	int j = 0; /* counts char in str */
-	int i = 0; /* counts words in str */
-
-	while (str[j])
-	{
-		if (ischar(str[j]))
-		{
-			k = 0; /* counts letters in words */
-			while (ischar(str[j]))
-			{
-				words[i][k] = str[j];
-				k++;
-				j++;
-			}
-			words[i][k] = '\0';
-		}
-		if (!ischar(str[j]) && ischar(str[j - 1]))
-			i++;
-		j++;
-	}
 }
 
 /**
@@ -117,28 +79,42 @@ void populate_arr(char *str, char **words)
 char **strtow(char *str)
 {
 	char **words;
-	int wc, wlen, i, j;
+	int wc, wlen, i, j, k;
 
 	if (str == NULL || _strlen(str) == 0)
 		return (NULL);
+
 	wc = word_count(str);
+
 	words = malloc(wc * sizeof(char *) + sizeof(char *));
 	if (words == NULL)
 		return (NULL);
 	words[wc] = NULL;
-	for (i = 0; i < wc; i++)
+
+	j = 0; /* counts char in str */
+	i = 0; /* counts words in str */
+	while (j < _strlen(str))
 	{
-		wlen = _strlen(words[i]) + 1;
-		words[i] = malloc(wlen * sizeof(char));
-		if (words[i] == NULL)
+		if (ischar(str[j]))
 		{
-			for (j = 0; j < i; j++)
-				free(words[j]);
-			free(words);
+			k = 0; /* counts letters in words */
+			while (ischar(str[j + k]))
+				k++;
+
+			words[i] = malloc((k + 1) * sizeof(char));
+			/* free if fail */
+
+			k = 0;
+			while (ischar(str[j]) || str[j] == '\0')
+			{
+				words[i][k] = str[j];
+				k++;
+				j++;
+			}
+			words[i][k] = '\0';
+			i++;
 		}
+		j++;
 	}
-
-	populate_arr(str, words);
-
 	return (words);
 }
