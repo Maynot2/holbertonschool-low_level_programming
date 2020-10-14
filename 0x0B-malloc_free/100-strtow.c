@@ -84,7 +84,7 @@ char **strtow(char *str)
 {
 	char **words;
 	int wc, wlen;
-	int i, j;
+	int i, j, k;
 
 	if (str == NULL || _strlen(str) == 0)
 		return (NULL);
@@ -106,6 +106,26 @@ char **strtow(char *str)
 				free(words[j]);
 			free(words);
 		}
+	}
+	
+	j = 0; /* counts char in str */
+	i = 0; /* counts words in str */
+	while (str[j])
+	{
+		if (ischar(str[j]))
+		{
+			k = 0; /* counts letters in words */
+			while (ischar(str[j]))
+			{
+				words[i][k] = str[j];
+				k++;
+				j++;
+			}
+			words[i][k] = '\0';
+		}
+		if (!ischar(str[j]) && ischar(str[j - 1]))
+			i++;
+		j++;
 	}
 
 	return (words);
