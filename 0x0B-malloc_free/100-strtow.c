@@ -73,43 +73,20 @@ int word_count(char *s)
 }
 
 /**
-  * strtow - Split a string in two.
+  * populate_arr - Populate an array.
   * @str: A pointer to a string.
+  * @words: A pointer to a pointer to a character.
   *
-  * Return: A pointer to to a pointer a string.
+  * Return: Nothing.
   *
   */
 
-char **strtow(char *str)
+void populate_arr(char *str, char **words)
 {
-	char **words;
-	int wc, wlen;
-	int i, j, k;
+	int k;
+	int j = 0; /* counts char in str */
+	int i = 0; /* counts words in str */
 
-	if (str == NULL || _strlen(str) == 0)
-		return (NULL);
-
-	wc = word_count(str);
-
-	words = malloc(wc * sizeof(char *) + sizeof(char *));
-	if (words == NULL)
-		return (NULL);
-	words[wc] = NULL;
-
-	for (i = 0; i < wc; i++)
-	{
-		wlen = _strlen(words[i]) + 1;
-		words[i] = malloc(wlen * sizeof(char));
-		if (words[i] == NULL)
-		{
-			for (j = 0; j < i; j++)
-				free(words[j]);
-			free(words);
-		}
-	}
-	
-	j = 0; /* counts char in str */
-	i = 0; /* counts words in str */
 	while (str[j])
 	{
 		if (ischar(str[j]))
@@ -127,6 +104,41 @@ char **strtow(char *str)
 			i++;
 		j++;
 	}
+}
+
+/**
+  * strtow - Split a string in two.
+  * @str: A pointer to a string.
+  *
+  * Return: A pointer to to a pointer a string.
+  *
+  */
+
+char **strtow(char *str)
+{
+	char **words;
+	int wc, wlen, i, j;
+
+	if (str == NULL || _strlen(str) == 0)
+		return (NULL);
+	wc = word_count(str);
+	words = malloc(wc * sizeof(char *) + sizeof(char *));
+	if (words == NULL)
+		return (NULL);
+	words[wc] = NULL;
+	for (i = 0; i < wc; i++)
+	{
+		wlen = _strlen(words[i]) + 1;
+		words[i] = malloc(wlen * sizeof(char));
+		if (words[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(words[j]);
+			free(words);
+		}
+	}
+
+	populate_arr(str, words);
 
 	return (words);
 }
