@@ -3,12 +3,11 @@
 #include "holberton.h"
 
 /**
-  * array_range - Allocates memory for an array of nmemb elements of size bytes
-  * each and sets every memory blocks to 0.
-  * @nmemb: An unsigned integer | The number of elements in the array.
-  * @size: A unsigned integer | The size of each elments.
+  * array_range - Creates an array of integers.
+  * @min: An integer | The lower limit of the range.
+  * @max: An integer | The upper limit of the range.
   *
-  * Return: - On success: A pointer at the start of the  allocated memory.
+  * Return: - On success: A pointer at the start of the range.
   *         - On failure: A NULL pointer.
   *
   */
