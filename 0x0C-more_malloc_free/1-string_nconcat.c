@@ -3,30 +3,51 @@
 #include "holberton.h"
 
 /**
-  * string_nconcat - Concatenate 2 strings s1 and s2 up to n bytes of s2.
-  * @s1: A pointer to a string.
-  * @s2: A pointer to a string.
-  * @n: An unsigned integer.
-  *
-  * Return: - On success: A pointer to the concatenated string.
-  *         - On failure: A NULL pointer.
-  *
-  */
+ * _strlen - Computes the size of a string s.
+ * @s: A pointer to a string.
+ *
+ * Return: An unsigned integer.
+ *
+ */
+
+unsigned int _strlen(char *s)
+{
+	unsigned int c = 0;
+
+	if (s == NULL)
+		return (c);
+
+	while (*(s + c))
+		c++;
+
+	return (c);
+}
+
+/**
+ * string_nconcat - Concatenate 2 strings s1 and s2 up to n bytes of s2.
+ * @s1: A pointer to a string.
+ * @s2: A pointer to a string.
+ * @n: An unsigned integer.
+ *
+ * Return: - On success: A pointer to the concatenated string.
+ *         - On failure: A NULL pointer.
+ *
+ */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *sconc_pt;
 	unsigned int i, j;
-	int sizeofs2;
+	unsigned int lens2;
 
 	if (!s1)
 		s1 = "";
 	if (!s2)
 		s2 = "";
 
-	sizeofs2 = (n > sizeof(s2)) ? (sizeof(s2) - 1) : n;
+	lens2 = (n > _strlen(s2)) ? (_strlen(s2) + 1) : n;
 
-	sconc_pt = malloc(sizeof(s1) + sizeofs2);
+	sconc_pt = malloc(_strlen(s1) + lens2);
 
 	if (sconc_pt == NULL)
 	{
