@@ -20,34 +20,38 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	char *pt_old, *pt_new;
 	unsigned int i;
 
-	if (new_size == old_size)
-		return (ptr);
-
-	if (new_size == 0 && !ptr)
-	{
-		free(ptr);
-		return (NULL);
-	}
-
-	pt_new = malloc(new_size);
-	if (pt_new == NULL)
-		return (NULL);
-
 	if (!ptr)
-		pt_old = malloc(old_size);
+	{
+		return (malloc(new_size));
+	}
 	else
+	{
+		if (new_size == old_size)
+			return (ptr);
+
+		if (new_size == 0)
+		{
+			free(ptr);
+			return (NULL);
+		}
+
+		pt_new = malloc(new_size);
+		if (pt_new == NULL)
+			return (NULL);
 		pt_old = ptr;
 
-	if (new_size > old_size)
-		for (i = 0; i < old_size; i++)
-		{
-			/*printf("pt_old[%d] : %c\n", i, pt_old[i] );*/
-			pt_new[i] = pt_old[i];
-			/*printf("pt_new[%d] : %c\n", i, pt_new[i] );*/
-		}
-	if (new_size < old_size)
-		for (i = 0; i < new_size; i++)
-			pt_new[i] = pt_old[i];
+		if (new_size > old_size)
+			for (i = 0; i < old_size; i++)
+			{
+				/*printf("pt_old[%d] : %c\n", i, pt_old[i] );*/
+				pt_new[i] = pt_old[i];
+				/*printf("pt_new[%d] : %c\n", i, pt_new[i] );*/
+			}
+		if (new_size < old_size)
+			for (i = 0; i < new_size; i++)
+				pt_new[i] = pt_old[i];
+		free(ptr);
 
-	return ((void *)pt_new);
+		return ((void *)pt_new);
+	}
 }
