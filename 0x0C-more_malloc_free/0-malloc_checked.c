@@ -7,7 +7,7 @@
   * @b: An unsigned integer | the allocation size in bytes.
   *
   * Return: - On success: A void pointer to the allocated memory.
-  *         - On failure: Exit the program with a status of 98. 
+  *         - On failure: Exit the program with a status of 98.
   *
   */
 
