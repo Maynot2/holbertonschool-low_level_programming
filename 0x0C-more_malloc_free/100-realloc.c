@@ -35,12 +35,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (!ptr)
 		pt_old = malloc(old_size);
+	else
+		pt_old = ptr;
 
 	if (new_size > old_size)
 		for (i = 0; i < old_size; i++)
+		{
 			/*printf("pt_old[%d] : %c\n", i, pt_old[i] );*/
 			pt_new[i] = pt_old[i];
 			/*printf("pt_new[%d] : %c\n", i, pt_new[i] );*/
+		}
 	if (new_size < old_size)
 		for (i = 0; i < new_size; i++)
 			pt_new[i] = pt_old[i];
