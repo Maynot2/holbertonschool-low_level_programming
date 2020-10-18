@@ -128,7 +128,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3 || !isnum(argv[1]) || !isnum(argv[2]))
 	{
-		print("Error\n");
+		printf("Error\n");
 		exit(98);
 	}
 
