@@ -45,7 +45,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (!s2)
 		s2 = "";
 
-	lens2 = (n > _strlen(s2)) ? n : (_strlen(s2) + 1);
+	lens2 = (n > _strlen(s2)) ? n : (_strlen(s2) - 1);
 
 	sconc_pt = malloc(_strlen(s1) + lens2);
 
