@@ -18,6 +18,8 @@ struct dog
 	char *owner;
 };
 
+typedef struct dog dog_t;
+
 /* function prototypes */
 
 int _putchar(char c);
