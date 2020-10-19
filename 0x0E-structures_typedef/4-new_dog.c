@@ -35,17 +35,35 @@ int _strlen(char *s)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *nd_pt;
-	size_t sizeofname = _strlen(name) * sizeof(char);
-	size_t sizeofage = sizeof(float);
-	size_t sizeofowner = _strlen(owner) * sizeof(char);
+	int i;
 
-	nd_pt = malloc(sizeofname + sizeofage + sizeofowner);
+	nd_pt = malloc(sizeof(dog_t));
 	if (nd_pt == NULL)
 		return (NULL);
+	nd_pt->name = malloc((_strlen(name) + 1) * sizeof(char));
+	if (nd_pt->name == NULL)
+	{
+		free(nd_pt);
+		return (NULL);
+	}
+	nd_pt->owner = malloc((_strlen(owner) + 1) * sizeof(char));
+	if (nd_pt->owner == NULL)
+	{
+		free(nd_pt);
+		return (NULL);
+	}
 
-	nd_pt->name = name;
+	for (i = 0; i <= _strlen(name); i++)
+	{
+		nd_pt->name[i] = name[i];
+	}
+
+	for (i = 0; i <= _strlen(owner); i++)
+	{
+		nd_pt->owner[i] = owner[i];
+	}
+
 	nd_pt->age = age;
-	nd_pt->owner = owner;
 
 	return (nd_pt);
 }
