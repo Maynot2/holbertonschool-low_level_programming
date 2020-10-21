@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 
 	if (bytes < 0)
 	{
-		printf("Error\n");                                                      
-		exit(2); 
+		printf("Error\n");
+		exit(2);
 	}
 
 	pf = (unsigned char *)main;
