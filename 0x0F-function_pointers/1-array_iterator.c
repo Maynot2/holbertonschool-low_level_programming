@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
-  * arrayiiterator - Call a callback function action for each elments of an
+  * array_iterator - Call a callback function action for each elments of an
   * an array of a given size.
   * @array: An array.
   * @size: The size of the array as an size_t.
