@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include "function_pointers.h"
 
@@ -18,7 +19,7 @@ int main(int argc, char **argv)
 	char *operator = argv[2];
 	int (*res)(int, int);
 
-	if (argc != 4)
+	if (argc != 4 || strlen(operator) > 1)
 	{
 		printf("Error\n");
 		return (0);
