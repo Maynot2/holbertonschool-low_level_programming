@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
   * op_add - Computes the sum of 2 integers a and b.
   * @a: An integer.
