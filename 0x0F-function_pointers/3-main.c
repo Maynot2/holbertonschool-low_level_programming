@@ -18,6 +18,12 @@ int main(int argc, char **argv)
 	char *operator = argv[2];
 	int (*res)(int, int);
 
+	if (argc != 4)
+	{
+		printf("Error\n");
+		return (0);
+	}
+
 	(void)argc;
 
 	res = get_op_func(operator);
