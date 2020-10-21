@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 	for (i = 0; i < bytes; i++)
 	{
 		if (i == bytes - 1)
-			printf("%x\n", pf[i]);
-		printf("%x ", pf[i]);
+			printf("%02x\n", pf[i]);
+		printf("%02x ", pf[i]);
 	}
 
 	return (0);
