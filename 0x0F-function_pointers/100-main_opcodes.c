@@ -34,12 +34,11 @@ int main(int argc, char **argv)
 
 	pf = (unsigned char *)main;
 
-	for (i = 0; i < bytes; i++)
+	for (i = 0; i < bytes - 1; i++)
 	{
-		if (i == bytes - 1)
-			printf("%02x\n", pf[i]);
 		printf("%02x ", pf[i]);
 	}
+	printf("%02x\n", pf[i]);
 
 	return (0);
 }
