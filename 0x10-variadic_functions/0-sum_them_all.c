@@ -13,11 +13,11 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list arglist;
-	int sum; 
+	int sum;
 	unsigned int i;
 
 	if (n <= 0)
-		return 0;
+		return (0);
 
 	va_start(arglist, n);
 
@@ -27,5 +27,5 @@ int sum_them_all(const unsigned int n, ...)
 
 	va_end(arglist);
 
-	return(sum);
+	return (sum);
 }
