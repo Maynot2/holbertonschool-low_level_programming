@@ -69,7 +69,7 @@ void print_s(va_list l)
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	char *separator = ""; 
+	char *separator = "";
 	int i, j;
 	fs_t elements[] = {
 		{'c', print_c},
