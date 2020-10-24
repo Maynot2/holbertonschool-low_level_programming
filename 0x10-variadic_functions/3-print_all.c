@@ -71,7 +71,7 @@ void print_all(const char * const format, ...)
 {
 	va_list list;
 	int i, j;
-	el_t elements[] = {
+	fs_t elements[] = {
 		{'c', print_c},
 		{'i', print_i},
 		{'f', print_f},
