@@ -5,7 +5,7 @@
 typedef struct el
 {
 	char t;
-	void (* func)(va_list list);
+	void (*func)(va_list list);
 } el_t;
 
 int _putchar(int);
