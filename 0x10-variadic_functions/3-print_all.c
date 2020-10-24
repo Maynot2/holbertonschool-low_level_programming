@@ -52,10 +52,9 @@ void print_s(va_list l)
 {
 	char *str = va_arg(l, char *);
 
-	if (str)
-		printf("%s", str);
-	else
-		printf("(nil)");
+	if (!str)
+		str = "(nil)";
+	printf("%s", str);
 }
 
 /**
