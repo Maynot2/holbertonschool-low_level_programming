@@ -50,12 +50,7 @@ void print_f(va_list l)
 
 void print_s(va_list l)
 {
-	char *str = va_arg(l, char *);
-
-	if (str)
-		printf("%s", str);
-	else
-		printf("(nil)");
+	printf("%s", va_arg(l, char *));
 }
 
 /**
