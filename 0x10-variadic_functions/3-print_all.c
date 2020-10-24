@@ -50,7 +50,12 @@ void print_f(va_list l)
 
 void print_s(va_list l)
 {
-	printf("%s", va_arg(l, char *));
+	char *str = va_arg(l, char *);
+
+	if (str)
+		printf("%s", str);
+	else
+		printf("(nil)");
 }
 
 /**
@@ -65,6 +70,7 @@ void print_s(va_list l)
 void print_all(const char * const format, ...)
 {
 	va_list list;
+	char *separator = ""; 
 	int i, j;
 	fs_t elements[] = {
 		{'c', print_c},
@@ -84,9 +90,9 @@ void print_all(const char * const format, ...)
 		{
 			if (elements[j].t == format[i])
 			{
+				printf("%s", separator);
 				elements[j].func(list);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				separator = ", ";
 			}
 			j++;
 		}
