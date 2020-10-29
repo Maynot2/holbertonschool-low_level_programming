@@ -10,5 +10,6 @@ section .text
 		mov rdi, msg
 		call printf
 		
-		leave
+		mov rsp, rbp
+		pop rbp
 		ret
