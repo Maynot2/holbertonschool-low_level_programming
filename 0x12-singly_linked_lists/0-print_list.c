@@ -28,22 +28,12 @@ void print_node(char *s, unsigned int length)
 size_t print_list(const list_t *h)
 {
 	size_t count = 0;
-	list_t *node;
 
-	if (h)
+	while (h)
 	{
-		count++;
 		print_node(h->str, h->len);
-		if (!(h->next))
-			return (count);
-		node = h->next;
-
-		while (node)
-		{
-			print_node(node->str, node->len);
-			node = node->next;
-			count++;
-		}
+		h = h->next;
+		count++;
 	}
 
 	return (count);
