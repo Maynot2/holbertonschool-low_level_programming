@@ -1,5 +1,13 @@
 #include "lists.h"
 
+/**
+ * print_listint - Prints a linked list of type listint_t.
+ * @h: The head of the list.
+ *
+ * Return: The number of printed elements.
+ *
+ */
+
 size_t print_listint(const listint_t *h)
 {
 	size_t count = 0;
