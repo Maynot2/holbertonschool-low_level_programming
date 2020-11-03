@@ -46,6 +46,8 @@ size_t print_listint_safe(const listint_t *head)
 		count++;
 		current = current->next;
 	}
+	if (current)
+		printf("-> [%p] %d\n", (void *)current, current->n);
 
 	return (count);
 }
