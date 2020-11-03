@@ -14,10 +14,8 @@ size_t distance_from_start(const listint_t *h, const listint_t *curr)
 {
 	size_t c = 0;
 
-	while (h)
+	while (h != curr)
 	{
-		if (h == curr)
-			break;
 		c++;
 		h = h->next;
 	}
