@@ -1,10 +1,20 @@
 #include "lists.h"
 
+/**
+ * distance_from_start - Computes the distance between the start of the list
+ * and a given node
+ * @h: A pointer to the start of the list.
+ * @curr: A pointer to another elment of the list.
+ *
+ * Return: The distance as an integer.
+ *
+ */
+
 size_t distance_from_start(const listint_t *h, const listint_t *curr)
 {
 	size_t c = 0;
 
-	while(h)
+	while (h)
 	{
 		if (h == curr)
 			break;
