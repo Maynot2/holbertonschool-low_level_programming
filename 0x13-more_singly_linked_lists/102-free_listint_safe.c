@@ -25,9 +25,9 @@ size_t distance_from_beg(listint_t *beg, listint_t *node)
 }
 
 /**
- * print_listint_safe - Prints a linked list of type listint_t only once (even
- * if the list is circular).
- * @head: The head of the list.
+ * free_listint_safe - Frees a linked list of type listint_t only once (even
+ * if the list loops).
+ * @h: Apointer to a pointer to the  head of the list.
  *
  * Return: The number of printed elements.
  *
