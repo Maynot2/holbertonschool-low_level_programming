@@ -13,7 +13,7 @@ void print_binary(unsigned long int n)
 	int i, curr_bit;
 	int istoprint = 0;
 
-	if (!n)
+	if (n <= 0)
 	{
 		_putchar('0');
 		return;
