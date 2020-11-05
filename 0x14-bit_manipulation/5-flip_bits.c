@@ -19,32 +19,6 @@ int get_bit(unsigned long int n, unsigned int index)
 }
 
 /**
- * bin_len - Computes the length of the binary convertion of an unsigned long
- * integer.
- * @num: An unsigned long integer
- *
- * Return: the length of the binary.
- *
- */
-
-unsigned int bin_len(unsigned long int num)
-{
-	unsigned int len = 0;
-
-	if (num == 0)
-		return (1);
-
-	while (num / 2)
-	{
-		len++;
-		num /= 2;
-	}
-	if (num % 2)
-		len++;
-	return (len);
-}
-
-/**
  * flip_bits - Computes the number of bits you would need to flip to get from
  * one number to another.
  * @n: An unsigned long integer.
@@ -62,7 +36,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned long int bit_max, bit_min;
 	int i;
 
-	for (i = bin_len(max); i >= 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		bit_max = get_bit(max, i);
 		bit_min = get_bit(min, i);
