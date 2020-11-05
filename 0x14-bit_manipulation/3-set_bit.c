@@ -38,14 +38,8 @@ unsigned int bin_len(unsigned long int num)
 
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int n_cp;
-
 	if (index >= bin_len(*n))
 		return (-1);
-	n_cp = *n;
 	*n |= (1 << index);
-	if (n_cp != *n)
-		return (-1);
-	else
-		return (1);
+	return (1);
 }
