@@ -48,7 +48,7 @@ unsigned int bin_len(unsigned long int num)
  * flip_bits - Computes the number of bits you would need to flip to get from
  * one number to another.
  * @n: An unsigned long integer.
- * @index: An unsigned long integer.¬
+ * @m: An unsigned long integer.¬
  *
  * Return: Count of flipped bits.
  *
