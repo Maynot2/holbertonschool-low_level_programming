@@ -8,7 +8,7 @@
  * Return: the length of the binary.
  *
  */
-
+/**
 unsigned int bin_len(unsigned long int num)
 {
 	unsigned int len = 0;
@@ -25,6 +25,7 @@ unsigned int bin_len(unsigned long int num)
 		len++;
 	return (len);
 }
+**/
 
 /**
  * clear_bit - Sets a bit to 0 at a given index index.
@@ -38,7 +39,7 @@ unsigned int bin_len(unsigned long int num)
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	if (index >= bin_len(*n))
+	if (index > 63)
 		return (-1);
 	*n &= ~(1 << index);
 	return (1);
