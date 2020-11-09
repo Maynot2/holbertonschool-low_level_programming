@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 
 	fd_to = open(file_to, O_TRUNC | O_WRONLY);
 	if (fd_to < 0)
-		fd_to = open(file_to, O_CREAT | O_WRONLY, S_IWUSR + S_IRUSR);
+		fd_to = open(file_to, O_CREAT | O_WRONLY, 0664);
 	if (fd_to < 0)
 		error_write(file_to);
 
