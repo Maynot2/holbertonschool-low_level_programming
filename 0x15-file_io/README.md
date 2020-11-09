@@ -1,6 +1,6 @@
 # File I/O
 
-Where we learn how to:
+Where we learn:
 
 - How to create, open, close, read and write files
 - What are file descriptors
