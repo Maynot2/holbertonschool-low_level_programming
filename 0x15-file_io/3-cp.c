@@ -89,6 +89,8 @@ int main(int argc, char **argv)
 
 	do {
 		read_c = read(fd_from, buff, 1024);
+		if (read_c == 1)
+			error_read(file_from);
 		wrote_c = write(fd_to, buff, read_c);
 		if (wrote_c != read_c)
 			error_write(file_to);
