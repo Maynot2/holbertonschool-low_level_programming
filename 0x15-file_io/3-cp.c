@@ -87,12 +87,12 @@ int main(int argc, char **argv)
 	if (fd_to < 0)
 		error_write(file_to);
 
-	read_c = read(fd_from, buff, 1024);
-	if (read_c < 0)
-		error_read(file_from);
-	wrote_c = write(fd_to, buff, read_c);
-	if (wrote_c != read_c)
-		error_write(file_to);
+	while (read_c = read(fd_from, buff, 1024))
+	{
+		wrote_c = write(fd_to, buff, read_c);
+		if (wrote_c != read_c)
+			error_write(file_to);
+	}
 
 	if (close(fd_from) == -1)
 		error_close(fd_from);
