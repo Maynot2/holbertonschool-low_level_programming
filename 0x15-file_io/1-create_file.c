@@ -33,6 +33,7 @@ int _strlen(const char *s)
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
+	int wrote;
 
 	fd = open(filename, O_TRUNC | O_WRONLY);
 	if (fd < 0)
@@ -40,7 +41,12 @@ int create_file(const char *filename, char *text_content)
 	if (fd < 0)
 		return (-1);
 
-	write(fd, text_content, _strlen(text_content));
+	if (text_content)
+	{
+		wrote = write(fd, text_content, _strlen(text_content));
+		if (wrote < 0)
+			return (-1);
+	}
 
 	close(fd);
 	return (0);
