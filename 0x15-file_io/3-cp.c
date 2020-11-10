@@ -67,7 +67,7 @@ void error_close(int fd)
 int main(int argc, char **argv)
 {
 	char *file_from, *file_to;
-	char buff[1025] = {0};
+	char buff[1024] = {0};
 	int fd_from, fd_to;
 	int read_c, wrote_c;
 
@@ -87,14 +87,14 @@ int main(int argc, char **argv)
 	if (fd_to < 0)
 		error_write(file_to);
 
-	do {
-		read_c = read(fd_from, buff, 1024);
+	while((read_c = read(fd_from, buff, 1024)))
+	{
 		if (read_c == -1)
 			error_read(file_from);
 		wrote_c = write(fd_to, buff, read_c);
 		if (wrote_c != read_c)
 			error_write(file_to);
-	} while (read_c);
+	}
 
 	if (close(fd_from) == -1)
 		error_close(fd_from);
