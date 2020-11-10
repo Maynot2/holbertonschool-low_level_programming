@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 	if (fd_to < 0)
 		error_write(file_to);
 
-	while((read_c = read(fd_from, buff, 1024)))
+	while ((read_c = read(fd_from, buff, 1024)))
 	{
 		if (read_c == -1)
 			error_read(file_from);
