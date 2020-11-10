@@ -67,7 +67,7 @@ void error_close(int fd)
 int main(int argc, char **argv)
 {
 	char *file_from, *file_to;
-	char buff[1024] = {0};
+	char buff[1025] = {0};
 	int fd_from, fd_to;
 	int read_c, wrote_c;
 
