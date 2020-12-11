@@ -3,7 +3,7 @@
 
 /**
   * insert_dnodeint_at_index - Inserts node at given index.
-  * @head: A pointer to a pointer to the head node of the list.
+  * @h: A pointer to a pointer to the head node of the list.
   * @idx: The given index.
   * @n: The value of the new node to insert.
   *
