@@ -1,12 +1,10 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_get - Finds an element in the hash table if present.
+ * hash_table_print - Prints tables.
  * @ht: The hash table.
- * @key: The key.
  *
- * Return: The value associated to the key  on success
- *         NULL on failure
+ * Return: Nothing.
  */
 
 void hash_table_print(const hash_table_t *ht)
@@ -15,7 +13,7 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *node;
 	int print_flag = 0;
 
-	if (!ht)
+	if (ht == NULL)
 		return;
 	printf("{");
 	for (i = 0; i < ht->size; i++)
