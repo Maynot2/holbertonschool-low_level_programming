@@ -25,13 +25,11 @@ void hash_table_print(const hash_table_t *ht)
 			{
 				if (print_flag)
 				{
-					printf(", '%s': '%s'", ht->array[i]->key,
-						ht->array[i]->value);
+					printf(", '%s': '%s'", node->key, node->value);
 				}
 				else
 				{
-					printf("'%s': '%s'", ht->array[i]->key,
-							ht->array[i]->value);
+					printf("'%s': '%s'", node->key, node->value);
 					print_flag = 1;
 				}
 				node = node->next;
