@@ -19,15 +19,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!key || !ht)
 		return (0);
 	v = strdup(value);
-	k = strdup(key);
-	index = key_index((const unsigned char *)k, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[index])
 	{
 		node = ht->array[index];
 		while (node)
 		{
-			if (strcmp(node->key, k) == 0)
+			if (strcmp(node->key, key) == 0)
 			{
 				free(node->value);
 				node->value = v;
@@ -41,6 +40,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!node)
 		return (0);
 
+	k = strdup(key);
 	node->key = k;
 	node->value = v;
 	if (ht->array[index])
