@@ -59,7 +59,7 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 	}
 	while (curr)
 	{
-		if (strcmp(curr->key, node->key) <= 0)
+		if (strcmp(curr->key, node->key) < 0)
 		{
 			if (curr->snext == NULL)
 			{
@@ -70,10 +70,11 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 			}
 			if (strcmp(curr->snext->key, node->key) > 0)
 			{
+				puts(node->key);
 				node->sprev = curr;
 				node->snext = curr->snext;
 				curr->snext = node;
-				node->snext->sprev = curr;
+				node->snext->sprev = node;
 				return;
 			}
 		}
@@ -104,6 +105,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index])
 	{
 		node = ht->array[index];
+
 		while (node)
 		{
 			if (strcmp(node->key, key) == 0)
@@ -128,6 +130,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 		node->next = NULL;
 	ht->array[index] = node;
+
+	printf("'%s': '%s'\n", node->key, node->value);
+
 	insert_node_ordered(ht, node);
 	return (1);
 }
