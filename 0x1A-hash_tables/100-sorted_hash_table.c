@@ -70,7 +70,6 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 			}
 			if (strcmp(curr->snext->key, node->key) > 0)
 			{
-				puts(node->key);
 				node->sprev = curr;
 				node->snext = curr->snext;
 				curr->snext = node;
