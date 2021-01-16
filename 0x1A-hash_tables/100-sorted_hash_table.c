@@ -130,9 +130,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 		node->next = NULL;
 	ht->array[index] = node;
-
-	printf("'%s': '%s'\n", node->key, node->value);
-
 	insert_node_ordered(ht, node);
 	return (1);
 }
