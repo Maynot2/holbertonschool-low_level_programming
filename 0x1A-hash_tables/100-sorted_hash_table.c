@@ -45,8 +45,6 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 
 	if (ht->shead == NULL)
 	{
-		node->snext = NULL;
-		node->sprev = NULL;
 		ht->shead = node;
 		ht->stail = node;
 		return;
@@ -54,7 +52,6 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 	curr = ht->shead;
 	if (strcmp(curr->key, node->key) > 0)
 	{
-		node->sprev = NULL;
 		node->snext = curr;
 		curr->sprev = node;
 		ht->shead = node;
@@ -66,17 +63,19 @@ void insert_node_ordered(shash_table_t *ht, shash_node_t *node)
 		{
 			if (curr->snext == NULL)
 			{
-				node->snext = NULL;
 				node->sprev = curr;
-				curr->next = node;
+				curr->snext = node;
 				ht->stail = node;
 				return;
 			}
-			node->sprev = curr;
-			node->snext = curr->snext;
-			curr->snext = node;
-			node->snext->sprev = curr;
-			return;
+			if (strcmp(curr->snext->key, node->key) > 0)
+			{
+				node->sprev = curr;
+				node->snext = curr->snext;
+				curr->snext = node;
+				node->snext->sprev = curr;
+				return;
+			}
 		}
 		curr = curr->snext;
 	}
@@ -102,7 +101,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		return (0);
 	v = strdup(value);
 	index = key_index((const unsigned char *)key, ht->size);
-
 	if (ht->array[index])
 	{
 		node = ht->array[index];
@@ -117,12 +115,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			node = node->next;
 		}
 	}
-
-	node = malloc(sizeof(hash_node_t));
+	node = malloc(sizeof(shash_node_t));
 	if (!node)
 		return (0);
-
 	k = strdup(key);
+	node->snext = NULL;
+	node->sprev = NULL;
 	node->key = k;
 	node->value = v;
 	if (ht->array[index])
@@ -130,9 +128,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 		node->next = NULL;
 	ht->array[index] = node;
-
 	insert_node_ordered(ht, node);
-
 	return (1);
 }
 
@@ -163,19 +159,19 @@ void shash_table_print(const shash_table_t *ht)
 			printf("'%s': '%s'", node->key, node->value);
 			print_flag = 1;
 		}
-		node = node->next;
+		node = node->snext;
 	}
 	printf("}\n");
 }
 
 /**
- * shash_table_print_reverse - Prints tables in reverse.
+ * shash_table_print_rev - Prints tables in reverse.
  * @ht: The hash table.
  *
  * Return: Nothing.
  */
 
-void shash_table_print_reverse(const shash_table_t *ht)
+void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *node;
 	int print_flag = 0;
