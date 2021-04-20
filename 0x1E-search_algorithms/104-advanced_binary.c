@@ -55,7 +55,12 @@ int binary_search_rec(int *array, int left, int right, int value)
 			return (middle);
 
 		if (value <= array[middle])
-			return (binary_search_rec(array, left, middle, value));
+		{
+			if (middle % 2 == 0)
+				return (binary_search_rec(array, left, middle - 1, value));
+			else
+				return (binary_search_rec(array, left, middle, value));
+		}
 
 		return (binary_search_rec(array, middle + 1, right, value));
 	}
