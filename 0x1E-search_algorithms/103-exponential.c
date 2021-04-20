@@ -30,7 +30,8 @@ void print_array(int *array, int left, int right)
  * Binary search algorithm
  *
  * @array: A pointer to the first element of the given array
- * @size: A integer representing the size of the array
+ * @left: A integer representing the left most index
+ * @right: A integer representing the right most index
  * @value: An integer representing the value we are searching for
  *
  * Return: An integer representing the index of the searched value if found
@@ -71,7 +72,7 @@ int binary_lookup(int *array, int left, int right, int value)
 
 int min(int a, int b)
 {
-	return a <= b ? a : b;
+	return (a <= b ? a : b);
 }
 
 /**
@@ -105,7 +106,7 @@ int exponential_search(int *array, size_t size, int value)
 
 		printf("Value found between indexes [%d] and [%d]\n", lo, hi);
 
-		return binary_lookup(array, lo, hi, value);
+		return (binary_lookup(array, lo, hi, value));
 	}
 	return (-1);
 }
