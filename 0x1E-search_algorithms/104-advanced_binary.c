@@ -1,23 +1,24 @@
 #include "search_algos.h"
 
 /**
- * print_array - Prints an array of given size
+ * print_array - Prints an array between 2 indexes
  *
  * @array: A pointer to the first element of the given array
- * @size: An integer representing the size of the array
+ * @left: An integer representing the left most index
+ * @right: An integer representing the right most index
  *
  * Return: Nothing
  */
 
-void print_array(int *array, int size)
+void print_array(int *array, int left, int right)
 {
 	int i;
 
 	printf("Searching in array: ");
 
-	for (i = 0; i < size; i++)
+	for (i = left; i <= right; i++)
 	{
-		if (i == size - 1)
+		if (i == right)
 			printf("%d\n", array[i]);
 		else
 			printf("%d, ", array[i]);
@@ -41,23 +42,23 @@ int binary_search_rec(int *array, int left, int right, int value)
 {
 	int middle;
 
-	print_array(array + left, right - left + 1);
+	print_array(array, left, right);
 
 	if (right >= left)
 	{
 		middle = left + (right - left) / 2;
 
-		if (array[middle] == value)
+		if (array[middle] == value && array[middle - 1] != value)
 			return (middle);
 
-		if (value < array[middle])
-			return (binary_search_rec(array, left, middle - 1, value));
+		if (value <= array[middle])
+			return (binary_search_rec(array, left, middle, value));
 		return (binary_search_rec(array, middle + 1, right, value));
 	}
 	return (-1);
 }
 
-/**
+/*
  * advanced_binary - Searches for a value in an array of integers using the
  * Binary search algorithm
  *
