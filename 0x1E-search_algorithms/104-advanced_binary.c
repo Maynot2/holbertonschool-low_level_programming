@@ -58,7 +58,7 @@ int binary_search_rec(int *array, int left, int right, int value)
 	return (-1);
 }
 
-/*
+/**
  * advanced_binary - Searches for a value in an array of integers using the
  * Binary search algorithm
  *
