@@ -15,13 +15,44 @@
 
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	if (list)
+	int jump, i = 0, j;
+	listint_t *search;
+
+	if (list && size > 0)
 	{
+		jump = (int)sqrt(size);
+		search = list;
 		while (list)
 		{
-			if (list->n == value)
-				return (list);
-			list->next;
+			printf("Value checked at index [%d] = [%d]\n", i, list->n);
+			for (j = 0; j < jump; j++)
+			{
+				search = search->next;
+				if (search == NULL)
+				{
+					printf("Value found between indexes [%d] and [%d]\n", i, i + j);
+					break;
+				}
+			}
+			if (j < jump)
+				break;
+			if (search->n > value)
+			{
+				printf("Value found between indexes [%d] and [%d]\n", i, i + j);
+				while (list)
+				{
+					printf("Value checked at index [%d] = [%d]\n", i, list->n);
+					if (list->n == value)
+						return (list);
+					list = list->next;
+					i++;
+				}
+			}
+			else
+			{
+				list = search;
+				i += jump;
+			}
 		}
 	}
 	return (NULL);
