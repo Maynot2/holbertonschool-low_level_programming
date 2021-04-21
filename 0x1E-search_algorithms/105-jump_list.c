@@ -27,13 +27,15 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			for (j = 0; j < jump; j++)
 			{
 				search = search->next;
-				if (!search)
+				if (search->next == NULL && j != jump)
+				{
+					j++;
 					break;
+				}
 			}
 			if ((j < jump) || (search->n > value))
 			{
-				if (search)
-					printf("Value checked at index [%d] = [%d]\n", i + j, search->n);
+				printf("Value checked at index [%d] = [%d]\n", i + j, search->n);
 				printf("Value found between indexes [%d] and [%d]\n", i, i + j);
 				while (list)
 				{
