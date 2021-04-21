@@ -49,7 +49,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		search = list->express;
 		if (search)
 		{
-			if (search->n > value)
+			if (search->n >= value)
 			{
 				print_val_checked(search->index, search->n);
 				print_val_found(list->index, search->index);
