@@ -33,7 +33,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 					break;
 				}
 			}
-			if ((j < jump) || (search->n > value))
+			if ((j < jump) || (search->n >= value))
 			{
 				printf("Value checked at index [%d] = [%d]\n", i + j, search->n);
 				printf("Value found between indexes [%d] and [%d]\n", i, i + j);
