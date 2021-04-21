@@ -29,14 +29,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			{
 				search = search->next;
 				if (search == NULL)
-				{
-					printf("Value found between indexes [%d] and [%d]\n", i, i + j);
 					break;
-				}
 			}
-			if (j < jump)
-				break;
-			if (search->n > value)
+			if ((j < jump) || (search->n > value))
 			{
 				printf("Value found between indexes [%d] and [%d]\n", i, i + j);
 				while (list)
