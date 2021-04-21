@@ -42,11 +42,11 @@ int binary_search_rec(int *array, int left, int right, int value)
 {
 	int middle;
 
-	print_array(array, left, right);
-
 	if (right >= left)
 	{
-		middle = left + (right - left) / 2;
+		print_array(array, left, right);
+
+		middle = (left + right) / 2;
 
 		if (array[left] == value)
 			return (left);
