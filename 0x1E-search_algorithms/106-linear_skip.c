@@ -1,6 +1,15 @@
 #include "search_algos.h"
 #include <math.h>
 
+/**
+ * list_size - Computes the size of a given list
+ *
+ * @head: A pointer to the start of the list
+ *
+ * Return: The size of the list as a size_t
+ *         0 if the list is NULL or empty
+ */
+
 size_t list_size(skiplist_t *head)
 {
 	size_t size = 0;
@@ -13,13 +22,31 @@ size_t list_size(skiplist_t *head)
 			size++;
 		}
 	}
-	return size;
+	return (size);
 }
+
+/**
+ * print_val_checked - Print the given interval containing the found node
+ *
+ * @idx: A size_t to representing an index
+ * @val: An integer representing the value at the matching index
+ *
+ * Return: Nothing
+ */
 
 void print_val_checked(size_t idx, int val)
 {
 	printf("Value checked at index [%lu] = [%d]\n", idx, val);
 }
+
+/**
+ * print_val_found - Print the given interval containing the found node
+ *
+ * @lo_idx: A size_t to representing the start index
+ * @hi_idx: A size_t representing the end index
+ *
+ * Return: Nothing
+ */
 
 void print_val_found(size_t lo_idx, size_t hi_idx)
 {
@@ -53,12 +80,11 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			{
 				print_val_checked(search->index, search->n);
 				print_val_found(list->index, search->index);
-				while (list)
+				for (; list; list = list->next)
 				{
 					print_val_checked(list->index, list->n);
 					if (list->n == value)
 						return (list);
-					list = list->next;
 				}
 			}
 			else
@@ -70,12 +96,11 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		else
 		{
 			print_val_found(list->index, list->index + list_size(list) - 1);
-			while (list)
+			for (; list; list = list->next)
 			{
 				print_val_checked(list->index, list->n);
 				if (list->n == value)
 					return (list);
-				list = list->next;
 			}
 		}
 	}
